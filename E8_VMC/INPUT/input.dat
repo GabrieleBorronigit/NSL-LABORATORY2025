@@ -1,0 +1,8 @@
+DELTA                  2.5
+DELTAMU                0.1
+DELTASIGMA             0.1
+NBLOCKS                200
+NSTEPS                 1800
+TEMPERATURE            1.5
+BINS                   100
+ENDINPUT
