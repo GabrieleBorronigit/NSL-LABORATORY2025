@@ -19,7 +19,7 @@ int main(int argc, char *argv[]) {
 
   int N_cities = 34;
   int N_chromosomes=200;
-  int N_generations = 2500;
+  int N_generations = 3500;
 
   mat cities = Generate_cities(N_cities, type);
   // compute distances

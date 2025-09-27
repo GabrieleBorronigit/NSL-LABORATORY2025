@@ -111,15 +111,13 @@ Chromosome::Chromosome() {
 
 bool Chromosome::Check_Boundary() {
   bool bound = true; // booleana per dire quando le cc sono soddisfatte
-
-  // confronto tutti i geni nel cromosoma, se ne trovo due uguali, aumento il
-  // contatore e do un altro valore random al gene uguale
   for (int i = 0; i < _N_genes; i++) {
     for (int j = 0; j < _N_genes; j++) {
       if (i != j && _genes(i) == _genes(j))
         bound = false;
     }
   }
+  if ((int)_genes(0)!=0) bound=false;
   return bound;
 }
 
@@ -206,11 +204,11 @@ GA::GA(int N_chromosomes, int N_cities) {
     _population[i] = chromo;
   }
   // set mutation and crossover probabilities
-  _P_pair = 0.12;
+  _P_pair = 0.1;
   _P_shift = 0.2;
-  _P_perm = 0.12;
-  _P_invert = 0.15;
-  _P_crossover = 0.5;
+  _P_perm = 0.15;
+  _P_invert = 0.2;
+  _P_crossover = 0.7;
 }
 
 void GA::Swap_in_population(int i, int j) {
@@ -280,7 +278,7 @@ void GA::Pair_swap(Chromosome &c) { c.Swap(1); }
 
 void GA::Shift_contiguous(Chromosome &c) { //shifts a random chunk of genes in the chromosome by a random amount of positions
   int N = c.Get_Ngenes();
-  int start=(int)(_rnd.Rannyu(0.0, double(N-2)));      
+  int start=(int)(_rnd.Rannyu(1.0, double(N-2)));      
   int length=(int)(_rnd.Rannyu(1,(N-start)/2.0)); 
 
   vec chunk(length); //store chunk of genes to be moved
