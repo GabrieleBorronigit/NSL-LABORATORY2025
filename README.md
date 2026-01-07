@@ -10,3 +10,4 @@ All codes are organized as:
 
 To run every program, besides the ones that need extra keywords such as exercise 9, simply go into SOURCE directory and hit make run.
 
+The notebook report of the results is named LABX_yz.
